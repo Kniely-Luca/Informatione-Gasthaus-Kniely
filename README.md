@@ -1,2 +1,2 @@
-# Informatione-Gasthaus-Kniely
+# Informationen-Gasthaus-Kniely
 Informationen zum Gasthaus Kniely
