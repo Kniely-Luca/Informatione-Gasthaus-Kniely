@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allgemeine Infos – Gasthaus Kniely</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: url('6804f2f3-6f09-4993-9937-0a30f6b6b1f1.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    header {
+      background-color: rgba(46, 125, 50, 0.8);
+      color: white;
+      padding: 2em;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: 2em auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      color: #333;
+    }
+    h1, h2 {
+      color: #2e7d32;
+    }
+    ul {
+      line-height: 1.6;
+    }
+    .review-form, .reviews {
+      margin-top: 2em;
+    }
+    .review-form input, .review-form textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    .review-entry {
+      background: #e8f5e9;
+      border-left: 4px solid #2e7d32;
+      padding: 1em;
+      margin-bottom: 1em;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 2em;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      margin-top: 3em;
+    }
+  </style>
+  <script>
+    function addReview(event) {
+      event.preventDefault();
+      const name = document.getElementById('review-name').value;
+      const text = document.getElementById('review-text').value;
+      if (name && text) {
+        const container = document.getElementById('review-list');
+        const entry = document.createElement('div');
+        entry.className = 'review-entry';
+        entry.innerHTML = `<strong>${name}</strong><br>${text}`;
+        container.prepend(entry);
+        document.getElementById('review-form').reset();
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Gasthaus Kniely – Allgemeine Informationen</h1>
+  </header>
+
+  <main>
+    <h2>Gebäudedaten & Lage</h2>
+    <ul>
+      <li><strong>Maße:</strong> Länge: 31 m, Breite: 22 m</li>
+      <li><strong>Stockwerke:</strong> 2 Etagen</li>
+      <li><strong>Gebäudeteile:</strong> 3 Säle, 1 Gastzimmer, 1 Küche</li>
+      <li><strong>Obergeschoß:</strong> 2 Säle, restlicher Bereich ist Wohnraum</li>
+      <li><strong>Lage:</strong> Direkt in der Kurve der Straße, in den Berg gebaut</li>
+    </ul>
+
+    <h2>Besonderheiten</h2>
+    <ul>
+      <li><strong>Alter:</strong> Über 100 Jahre alt, mehrfach vergrößert</li>
+      <li><strong>Außenbereich:</strong> Schöner Gastgarten direkt neben der Straße</li>
+      <li><strong>WC:</strong> Befindet sich im unteren Bereich</li>
+      <li><strong>Parkplätze:</strong> Ausreichend vorhanden</li>
+    </ul>
+
+    <div class="review-form">
+      <h2>Deine Meinung</h2>
+      <form id="review-form" onsubmit="addReview(event)">
+        <label for="review-name">Name:</label>
+        <input type="text" id="review-name" required>
+        <label for="review-text">Deine Rezension:</label>
+        <textarea id="review-text" rows="4" required></textarea>
+        <button type="submit">Absenden</button>
+      </form>
+    </div>
+
+    <div class="reviews">
+      <h2>Was andere Gäste sagen</h2>
+      <div id="review-list">
+        <!-- Neue Rezensionen erscheinen hier -->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Gasthaus Kniely | Alle Angaben ohne Gewähr
+  </footer>
+</body>
+</html>
